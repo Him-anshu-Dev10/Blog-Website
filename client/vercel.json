@@ -2,8 +2,20 @@
   "version": 2,
   "routes": [
     {
+      "src": "^/assets/(.*)",
+      "dest": "/assets/$1"
+    },
+    {
+      "src": "^/favicon\\.svg$",
+      "dest": "/favicon.svg"
+    },
+    {
+      "src": "^/vite\\.svg$",
+      "dest": "/vite.svg"
+    },
+    {
       "src": "/(.*)",
-      "dest": "/"
+      "dest": "/index.html"
     }
   ]
 }
