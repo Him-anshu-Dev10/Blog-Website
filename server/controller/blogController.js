@@ -36,6 +36,16 @@ export const addBlog = async (req, res) => {
 
     const image = req.file;
     //upload image to imagekit
+    console.log("ImageKit instance:", typeof imagekit);
+    console.log("ImageKit upload method:", typeof imagekit.upload);
+
+    if (!imagekit.upload) {
+      return res.json({
+        success: false,
+        message: "ImageKit upload method not available",
+      });
+    }
+
     const filebuffer = fs.readFileSync(image.path);
     const uploadResponse = await imagekit.upload({
       file: filebuffer,
